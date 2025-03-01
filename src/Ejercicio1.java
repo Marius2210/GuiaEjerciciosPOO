@@ -14,11 +14,11 @@ public class Ejercicio1 {
 
         System.out.print("Ingrese el año de fabricación del vehículo: ");
         int añoFabricacion = scanner.nextInt();
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
 
         System.out.print("Ingrese el valor del vehículo: ");
         double valorVehiculo = scanner.nextDouble();
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
 
         System.out.print("Ingrese el país de origen (China, Estados Unidos): ");
         String paisOrigen = scanner.nextLine();
@@ -29,16 +29,16 @@ public class Ejercicio1 {
             return;
         }
 
-        // Calcular impuesto
+        // Calcular impuesto basado en el año y valor del vehículo
         double impuesto = calcularImpuesto(añoFabricacion, valorVehiculo);
 
-        // Calcular flete marítimo
+        // Calcular flete marítimo según país de origen y tipo de vehículo
         double flete = calcularFlete(paisOrigen, tipoVehiculo);
 
-        // Calcular matrícula inicial
+        // Calcular matrícula inicial basada en el año de fabricación
         double matricula = calcularMatricula(añoFabricacion);
 
-        // Calcular total de importación
+        // Calcular total de importación sumando impuesto, flete y matrícula
         double totalImportacion = impuesto + flete + matricula;
 
         // Mostrar resultados
@@ -57,6 +57,7 @@ public class Ejercicio1 {
 
 
     }
+    // Método para calcular el impuesto basado en la antigüedad del vehículo
     private static double calcularImpuesto(int añoFabricacion, double valorVehiculo) {
         int añosAntiguedad = 2025 - añoFabricacion;
 
@@ -71,6 +72,7 @@ public class Ejercicio1 {
         }
     }
 
+    // Método para calcular el flete según el país de origen y tipo de vehículo
     private static double calcularFlete(String paisOrigen, String tipoVehiculo) {
         switch (paisOrigen.toLowerCase()) {
             case "china":
@@ -104,6 +106,7 @@ public class Ejercicio1 {
         }
     }
 
+    // Método para calcular la matrícula basada en el año de fabricación
     private static double calcularMatricula(int añoFabricacion) {
         if (añoFabricacion >= 2020 && añoFabricacion <= 2025) {
             return 11.99;
